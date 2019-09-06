@@ -24,12 +24,12 @@ class TagCheckerProblem
   end
 
   private
-  def same_letters?(letter_opening_tag, letter_closing_tag)
-    to_letter(letter_opening_tag) == to_letter(letter_closing_tag)
-  end
-
   def open_tag?(tag)
     tag[/<[A-Z]>/] ? true : false
+  end
+
+  def same_letters?(letter_opening_tag, letter_closing_tag)
+    to_letter(letter_opening_tag) == to_letter(letter_closing_tag)
   end
 
   def to_letter(tag)
@@ -50,17 +50,20 @@ class TagCheckerProblem
     end
   end
 end
-# paragraph = "</B><B>"
-# paragraph = "<B>"
-# paragraph = "</B>"
-# paragraph = "<B><C>This should be centred and in boldface, but there isa missing closing tag</C>"
-# paragraph = "<B>This should be in boldface, but there is an extra closingtag</B></C>"
-# paragraph = "<B><C> This should be centred and in boldface, but thetagsare wrongly nested </B></C>"
-# paragraph = "<B>This <\g>is <B>boldface</B> in <<*> a</B> <\6> <<d>sentence"
-# paragraph = 'The following text<C><B>is centred and in boldface</B></C>'
-# paragraph = '<B><C>This should be in boldface, but there is an extra closingtag</C>'
-# paragraph = '<B>This should be in boldface, but there is an extra closingtag</C>'
-# paragraph = '<B>This <A>should</A> be in <F>boldface,</F> but there is an extra closingtag</B></C></D>'
+
+# USAGE_EXAMPLES
+# ruby ./tag_checker_problem.rb "</B><B>"
+# ruby ./tag_checker_problem.rb "<B>"
+# ruby ./tag_checker_problem.rb "</B>"
+# ruby ./tag_checker_problem.rb "<B><C>This should be centred and in boldface, but there isa missing closing tag</C>"
+# ruby ./tag_checker_problem.rb "<B>This should be in boldface, but there is an extra closingtag</B></C>"
+# ruby ./tag_checker_problem.rb "<B><C> This should be centred and in boldface, but thetagsare wrongly nested </B></C>"
+# ruby ./tag_checker_problem.rb "<B>This <\g>is <B>boldface</B> in <<*> a</B> <\6> <<d>sentence"
+# ruby ./tag_checker_problem.rb 'The following text<C><B>is centred and in boldface</B></C>'
+# ruby ./tag_checker_problem.rb '<B><C>This should be in boldface, but there is an extra closingtag</C>'
+# ruby ./tag_checker_problem.rb '<B>This should be in boldface, but there is an extra closingtag</C>'
+# ruby ./tag_checker_problem.rb '<B>This <A>should</A> be in <F>boldface,</F> but there is an extra closingtag</B></C></D>'
+
 puts TagCheckerProblem.new.solve(ARGV[0])
 
 
