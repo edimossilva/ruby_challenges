@@ -19,5 +19,4 @@ class CountingValleysSpec < Test::Unit::TestCase
     expected_result = 10
     assert_equal expected_result, result
   end
-
 end
